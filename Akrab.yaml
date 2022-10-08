@@ -1,0 +1,94 @@
+proxies:
+- name: 🇸🇬147
+  type: trojan
+  server: 104.21.21.147
+  port: 443
+  password: jagoanssh-05nov
+  udp: true
+  sni: sgcgo.ipservers.xyz
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/trojan"
+    headers:
+      Host: sgcgo.ipservers.xyz
+  #interface-name: eth0.1
+- name: 🇸🇬39
+  type: trojan
+  server: 104.18.11.39
+  port: 443
+  password: jagoanssh-01nov
+  udp: true
+  sni: sgcgo.ipservers.xyz
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/trojan"
+    headers:
+      Host: sgcgo.ipservers.xyz
+- name: 🇸🇬174
+  type: trojan
+  server: 104.18.38.174
+  port: 443
+  password: jagoanssh-30oktb
+  udp: true
+  sni: sgcgo.ipservers.xyz
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /trojan
+    headers:
+      Host: sgcgo.ipservers.xyz
+- name: 🇸🇬34
+  type: trojan
+  server: 172.67.199.34
+  port: 443
+  password: jagoanssh-27okt
+  udp: true
+  sni: sgcgo.ipservers.xyz
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /trojan
+    headers:
+      Host: sgcgo.ipservers.xyz
+- name: 🇸🇬news
+  type: trojan
+  server: 141.193.213.20
+  port: 443
+  password: jagoanssh-21okt
+  udp: true
+  sni: news.microsoft.com
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: wss://news.microsoft.com/trojan
+    headers:
+      Host: sgcgo.ipservers.xyz
+  #interface-name: eth0.1
+- name: 🇸🇬h
+  type: trojan
+  server: 104.21.21.147
+  port: 443
+  password: 2a6354e0-440e-11ed-a49e-1239d0255272
+  udp: true
+  sni: sg-atha.bonds.id
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /howdy
+    headers:
+      Host: sg-atha.bonds.id
+- name: 🇲🇨h
+  server: 172.67.199.34
+  port: 443
+  type: trojan
+  password: e16f6af0-4651-11ed-be20-1239d0255272
+  udp: true
+  sni: idtj-ikd.bonds.id
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /howdy
+    headers:
+      Host: idtj-ikd.bonds.id
