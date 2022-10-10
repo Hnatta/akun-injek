@@ -1,4 +1,4 @@
-https://jupitervpn.ninja/?do=create-account&filter=91#notif ID
+payload:
 
 # Google Ads
   - DOMAIN,pagead2.googlesyndication.com
