@@ -25,11 +25,11 @@ proxies:
     path: "/trojan"
     headers:
       Host: sgcgo.ipservers.xyz
-- name: 01nov 39
+- name: 10nov 39
   type: trojan
   server: 104.18.11.39
   port: 443
-  password: jagoanssh-01nov
+  password: jagoanssh-10nov
   udp: true
   sni: sgcgo.ipservers.xyz
   skip-cert-verify: true
