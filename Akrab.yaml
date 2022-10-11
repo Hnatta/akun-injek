@@ -12,7 +12,7 @@ proxies:
     path: "/trojan-ws"
     headers:
       Host: trojan-ctb-sg01.globalssh.xyz
-- name: 05nov 147
+- name: 05nov22 147
   type: trojan
   server: 104.21.21.147
   port: 443
@@ -25,7 +25,7 @@ proxies:
     path: "/trojan"
     headers:
       Host: sgcgo.ipservers.xyz
-- name: 10nov 39
+- name: 10nov22 39
   type: trojan
   server: 104.18.11.39
   port: 443
