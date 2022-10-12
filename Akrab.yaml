@@ -12,6 +12,19 @@ proxies:
     path: "/trojan-ws"
     headers:
       Host: trojan-ctb-sg01.globalssh.xyz
+- name: 16grpc_tls
+  server: 104.21.21.147
+  port: 443
+  type: vless
+  uuid: 11697c4d-7550-4817-ae11-a3ddf199e80f
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: vless-ctb-sg01.globalssh.xyz
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless-grpc-sibyok-globalssh
+  udp: true
 - name: 05nov 147
   type: trojan
   server: 104.21.21.147
