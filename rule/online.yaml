@@ -1,18 +1,18 @@
 ---
 proxies:
-- name: sgbb 147
+- name: global 147
   type: trojan
   server: 104.21.21.147
   port: 443
-  password: jagoanssh-30oktb
+  password: pitulas
   udp: true
-  sni: sgcgo.ipservers.xyz
+  sni: trojan-ctb-sg01.globalssh.xyz
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: "/trojan"
+    path: "/trojan-ws"
     headers:
-      Host: sgcgo.ipservers.xyz
+      Host: trojan-ctb-sg01.globalssh.xyz
 - name: sgbb 39
   type: trojan
   server: 104.18.11.39
@@ -37,19 +37,6 @@ proxies:
   network: ws
   ws-opts:
     path: wss://news.microsoft.com/trojan
-    headers:
-      Host: sgcgo.ipservers.xyz
-- name: sgws api
-  type: trojan
-  server: 104.26.4.10
-  port: 443
-  password: jagoanssh-telulasoktb
-  udp: true
-  sni: api.fastworldpay.com
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: ws://api.fastworldpay.com/trojan
     headers:
       Host: sgcgo.ipservers.xyz
 port: 7890
