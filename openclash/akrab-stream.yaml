@@ -1,5 +1,6 @@
 payload:
   # Google
+  - DOMAIN-KEYWORD,stream
   - DOMAIN-KEYWORD,live
   - DOMAIN-SUFFIX,googleapis.com
   - DOMAIN-SUFFIX,gstatic.com
