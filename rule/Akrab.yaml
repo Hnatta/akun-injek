@@ -1,0 +1,119 @@
+---
+proxies:
+- name: Howdy
+  type: trojan
+  server: 104.21.21.147
+  port: 443
+  password: a0d299f0-4b05-11ed-a993-1239d0255272
+  udp: true
+  sni: sg-atha.bonds.id
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/howdy"
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+ipv6: false
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: root
+bind-address: "*"
+unified-delay: true
+profile:
+  store-selected: true
+  store-fake-ip: true
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7874
+  nameserver:
+  - dhcp://"eth0.1"
+  - 192.168.8.1
+  - 8.8.8.8
+  - 8.8.4.4
+  - https://dns.adguard.com/dns-query
+  - https://dns.google/dns-query
+  - tls://dns.adguard.com
+  - tls://dns.google
+  fallback:
+  - 1.1.1.1
+  - 8.8.4.4
+  - https://cloudflare-dns.com/dns-query
+  - 112.215.203.254
+  default-nameserver:
+  - 8.8.8.8
+  - 1.1.1.1
+  - 112.215.203.254
+  - 192.168.8.1
+  - 8.8.4.4
+rules:
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- RULE-SET,ssh-vpn,update
+- RULE-SET,whatsapp,DIRECT
+- MATCH,LoadBalance
+proxy-groups:
+- name: LoadBalance
+  type: load-balance
+  strategy: round-robin
+  disable-udp: true
+  use:
+  - Github
+  url: http://www.gstatic.com/generate_204
+  interval: '300'
+- name: update
+  type: fallback
+  disable-udp: true
+  proxies:
+  - Howdy
+  use:
+  - Github
+  url: http://www.gstatic.com/generate_204
+  interval: '600'
+proxy-providers:
+  Github:
+    type: http
+    path: "./proxy_provider/Github.yaml"
+    url: https://raw.githubusercontent.com/Hnatta/akun-injek/main/rule/online.yaml
+    interval: 3600
+    health-check:
+      enable: true
+      url: https://cp.cloudflare.com/generate_204
+      interval: 300
+external-ui: "/usr/share/openclash/ui"
+geodata-mode: false
+geodata-loader: memconservative
+tcp-concurrent: true
+sniffer:
+  enable: true
+  sniffing:
+  - tls
+  - http
+tun:
+  enable: true
+  stack: system
+  device: utun
+  auto-route: false
+  auto-detect-interface: false
+  dns-hijack:
+  - tcp://any:53
+rule-providers:
+  ssh-vpn:
+    type: http
+    behavior: classical
+    path: "./rule_provider/ssh-vpn.yaml"
+    url: https://raw.githubusercontent.com/Hnatta/akun-injek/main/openclash/ssh-vpn.yaml
+    interval: 3600
+  whatsapp:
+    type: http
+    behavior: classical
+    path: "./rule_provider/whatsapp.yaml"
+    url: https://raw.githubusercontent.com/Hnatta/akun-injek/main/openclash/akrab-whatsapp.yaml
+    interval: 3600
