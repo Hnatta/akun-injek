@@ -52,34 +52,6 @@ proxies:
     path: ws://api.fastworldpay.com/trojan
     headers:
       Host: sgcgo.ipservers.xyz
-proxy-groups:
-- name: FALLBACK
-  type: fallback
-  proxies:
-  - sgwss news
-  - sgws api
-  - sgbb 147
-  - sgbb 39
-  - DIRECT
-  url: http://hi.bonds.id/ping
-  interval: '300'
-- name: LOAD-BALANCE
-  type: load-balance
-  strategy: round-robin
-  proxies:
-  - sgwss news
-  - sgws api
-  - sgbb 147
-  - sgbb 39
-  url: http://hi.bonds.id/ping
-  interval: '300'
-- name: MIX
-  type: relay
-  proxies:
-  - FALLBACK
-  - LOAD-BALANCE
-  url: http://hi.bonds.id/ping
-  interval: '300'
 port: 7890
 socks-port: 7891
 redir-port: 7892
