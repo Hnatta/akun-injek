@@ -1,6 +1,6 @@
 ---
 proxies:
-- name: global 147
+- name: 17okt 147
   type: trojan
   server: 104.21.21.147
   port: 443
@@ -13,11 +13,24 @@ proxies:
     path: "/trojan-ws"
     headers:
       Host: trojan-ctb-sg01.globalssh.xyz
-- name: sgbb 39
+- name: 21okt 34
+  type: trojan
+  server: 172.67.199.34
+  port: 443
+  password: ff435510-4b3d-11ed-b836-225401db9d57
+  udp: true
+  sni: sghe.tjvpn.org
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/fastssh"
+    headers:
+      Host: sghe.tjvpn.org
+- name: 12nov 39
   type: trojan
   server: 104.18.11.39
   port: 443
-  password: jagoanssh-27okt
+  password: jagoanssh-12nov
   udp: true
   sni: sgcgo.ipservers.xyz
   skip-cert-verify: true
@@ -26,11 +39,11 @@ proxies:
     path: "/trojan"
     headers:
       Host: sgcgo.ipservers.xyz
-- name: sgwss news
+- name: 13nov news
   type: trojan
   server: 141.193.213.20
   port: 443
-  password: jagoanssh-21okt
+  password: jagoanssh-13oktbr
   udp: true
   sni: news.microsoft.com
   skip-cert-verify: true
@@ -73,4 +86,4 @@ dns:
   - 1.1.1.1
   - 112.215.203.254
 rules:
-- MATCH,MIX
+- "MATCH,\U0001F4E1"
