@@ -1,0 +1,117 @@
+---
+proxies:
+- name: sgbb 147
+  type: trojan
+  server: 104.21.21.147
+  port: 443
+  password: jagoanssh-30oktb
+  udp: true
+  sni: sgcgo.ipservers.xyz
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/trojan"
+    headers:
+      Host: sgcgo.ipservers.xyz
+- name: sgbb 39
+  type: trojan
+  server: 104.18.11.39
+  port: 443
+  password: jagoanssh-27okt
+  udp: true
+  sni: sgcgo.ipservers.xyz
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/trojan"
+    headers:
+      Host: sgcgo.ipservers.xyz
+- name: sgwss news
+  type: trojan
+  server: 141.193.213.20
+  port: 443
+  password: jagoanssh-21okt
+  udp: true
+  sni: news.microsoft.com
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: wss://news.microsoft.com/trojan
+    headers:
+      Host: sgcgo.ipservers.xyz
+- name: sgws api
+  type: trojan
+  server: 104.26.4.10
+  port: 443
+  password: jagoanssh-telulasoktb
+  udp: true
+  sni: api.fastworldpay.com
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: ws://api.fastworldpay.com/trojan
+    headers:
+      Host: sgcgo.ipservers.xyz
+proxy-groups:
+- name: FALLBACK
+  type: fallback
+  proxies:
+  - sgwss news
+  - sgws api
+  - sgbb 147
+  - sgbb 39
+  - DIRECT
+  url: http://hi.bonds.id/ping
+  interval: '300'
+- name: LOAD-BALANCE
+  type: load-balance
+  strategy: round-robin
+  proxies:
+  - sgwss news
+  - sgws api
+  - sgbb 147
+  - sgbb 39
+  url: http://hi.bonds.id/ping
+  interval: '300'
+- name: MIX
+  type: relay
+  proxies:
+  - FALLBACK
+  - LOAD-BALANCE
+  url: http://hi.bonds.id/ping
+  interval: '300'
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+ipv6: false
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: ''
+bind-address: "*"
+unified-delay: true
+profile:
+  store-selected: true
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7874
+  nameserver:
+  - 8.8.8.8
+  - 1.0.0.1
+  - https://dns.google/dns-query
+  fallback:
+  - 1.1.1.1
+  - 8.8.4.4
+  - https://cloudflare-dns.com/dns-query
+  - 112.215.203.254
+  default-nameserver:
+  - 8.8.8.8
+  - 1.1.1.1
+  - 112.215.203.254
+rules:
+- MATCH,MIX
